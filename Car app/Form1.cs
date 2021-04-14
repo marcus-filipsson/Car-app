@@ -21,5 +21,20 @@ namespace Car_app
         {
 
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lsvCars_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

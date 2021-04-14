@@ -36,13 +36,15 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.regnr = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.lsvCars = new System.Windows.Forms.ListView();
             this.make = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.forsale = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.year = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.model = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnRemove = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -77,7 +79,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Controls.Add(this.checkBox1);
             this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Controls.Add(this.textBox4);
@@ -94,41 +96,43 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(607, 73);
+            this.checkBox1.Location = new System.Drawing.Point(579, 73);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(113, 24);
+            this.checkBox1.Size = new System.Drawing.Size(89, 24);
             this.checkBox1.TabIndex = 4;
-            this.checkBox1.Text = "checkBox1";
+            this.checkBox1.Text = "Till Salu";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnAdd
             // 
-            this.button1.Location = new System.Drawing.Point(607, 123);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 26);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAdd.Location = new System.Drawing.Point(579, 123);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 26);
+            this.btnAdd.TabIndex = 5;
+            this.btnAdd.Text = "Lägg till";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // regnr
             // 
             this.regnr.Text = "Reg Nr";
             this.regnr.Width = 74;
             // 
-            // listView1
+            // lsvCars
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lsvCars.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.regnr,
             this.make,
             this.forsale,
             this.year,
             this.model});
-            this.listView1.Location = new System.Drawing.Point(41, 192);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(686, 246);
-            this.listView1.TabIndex = 5;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.lsvCars.Location = new System.Drawing.Point(41, 192);
+            this.lsvCars.Name = "lsvCars";
+            this.lsvCars.Size = new System.Drawing.Size(686, 207);
+            this.lsvCars.TabIndex = 5;
+            this.lsvCars.UseCompatibleStateImageBehavior = false;
+            this.lsvCars.View = System.Windows.Forms.View.Details;
+            this.lsvCars.SelectedIndexChanged += new System.EventHandler(this.lsvCars_SelectedIndexChanged);
             // 
             // make
             // 
@@ -147,12 +151,33 @@
             // 
             this.model.Text = "modell";
             // 
+            // btnRemove
+            // 
+            this.btnRemove.Location = new System.Drawing.Point(620, 415);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(75, 23);
+            this.btnRemove.TabIndex = 6;
+            this.btnRemove.Text = "Ta bort markerad";
+            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(111, 406);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnRemove);
+            this.Controls.Add(this.lsvCars);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -171,14 +196,16 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.ColumnHeader regnr;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView lsvCars;
         private System.Windows.Forms.ColumnHeader make;
         private System.Windows.Forms.ColumnHeader forsale;
         private System.Windows.Forms.ColumnHeader year;
         private System.Windows.Forms.ColumnHeader model;
+        private System.Windows.Forms.Button btnRemove;
+        private System.Windows.Forms.Button button1;
     }
 }
 
