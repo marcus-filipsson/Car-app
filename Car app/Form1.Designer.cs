@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtRegNr = new System.Windows.Forms.TextBox();
+            this.txtModel = new System.Windows.Forms.TextBox();
+            this.txtMake = new System.Windows.Forms.TextBox();
+            this.txtYear = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.cbxForSale = new System.Windows.Forms.CheckBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.regnr = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lsvCars = new System.Windows.Forms.ListView();
@@ -44,47 +44,47 @@
             this.year = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.model = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnRemove = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtRegNr
             // 
-            this.textBox1.Location = new System.Drawing.Point(125, 73);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(146, 26);
-            this.textBox1.TabIndex = 0;
+            this.txtRegNr.Location = new System.Drawing.Point(125, 73);
+            this.txtRegNr.Name = "txtRegNr";
+            this.txtRegNr.Size = new System.Drawing.Size(146, 26);
+            this.txtRegNr.TabIndex = 0;
             // 
-            // textBox2
+            // txtModel
             // 
-            this.textBox2.Location = new System.Drawing.Point(374, 73);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(123, 26);
-            this.textBox2.TabIndex = 1;
+            this.txtModel.Location = new System.Drawing.Point(374, 73);
+            this.txtModel.Name = "txtModel";
+            this.txtModel.Size = new System.Drawing.Size(123, 26);
+            this.txtModel.TabIndex = 1;
             // 
-            // textBox3
+            // txtMake
             // 
-            this.textBox3.Location = new System.Drawing.Point(125, 123);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(146, 26);
-            this.textBox3.TabIndex = 2;
+            this.txtMake.Location = new System.Drawing.Point(125, 123);
+            this.txtMake.Name = "txtMake";
+            this.txtMake.Size = new System.Drawing.Size(146, 26);
+            this.txtMake.TabIndex = 2;
             // 
-            // textBox4
+            // txtYear
             // 
-            this.textBox4.Location = new System.Drawing.Point(374, 123);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(123, 26);
-            this.textBox4.TabIndex = 3;
+            this.txtYear.Location = new System.Drawing.Point(374, 123);
+            this.txtYear.Name = "txtYear";
+            this.txtYear.Size = new System.Drawing.Size(123, 26);
+            this.txtYear.TabIndex = 3;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnAdd);
-            this.groupBox1.Controls.Add(this.checkBox1);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.cbxForSale);
+            this.groupBox1.Controls.Add(this.txtMake);
+            this.groupBox1.Controls.Add(this.txtYear);
+            this.groupBox1.Controls.Add(this.txtRegNr);
+            this.groupBox1.Controls.Add(this.txtModel);
             this.groupBox1.Location = new System.Drawing.Point(41, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(686, 174);
@@ -93,15 +93,15 @@
             this.groupBox1.Text = "groupBox1";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // checkBox1
+            // cbxForSale
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(579, 73);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(89, 24);
-            this.checkBox1.TabIndex = 4;
-            this.checkBox1.Text = "Till Salu";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.cbxForSale.AutoSize = true;
+            this.cbxForSale.Location = new System.Drawing.Point(579, 73);
+            this.cbxForSale.Name = "cbxForSale";
+            this.cbxForSale.Size = new System.Drawing.Size(89, 24);
+            this.cbxForSale.TabIndex = 4;
+            this.cbxForSale.Text = "Till Salu";
+            this.cbxForSale.UseVisualStyleBackColor = true;
             // 
             // btnAdd
             // 
@@ -126,7 +126,7 @@
             this.forsale,
             this.year,
             this.model});
-            this.lsvCars.Location = new System.Drawing.Point(41, 192);
+            this.lsvCars.Location = new System.Drawing.Point(41, 193);
             this.lsvCars.Name = "lsvCars";
             this.lsvCars.Size = new System.Drawing.Size(686, 207);
             this.lsvCars.TabIndex = 5;
@@ -161,21 +161,22 @@
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
-            // button1
+            // btnClear
             // 
-            this.button1.Location = new System.Drawing.Point(111, 406);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnClear.Location = new System.Drawing.Point(111, 406);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(136, 32);
+            this.btnClear.TabIndex = 7;
+            this.btnClear.Text = "Rensa bort all data";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.lsvCars);
             this.Controls.Add(this.groupBox1);
@@ -191,13 +192,13 @@
         #endregion
 
         private System.Windows.Forms.BindingSource bindingSource1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtRegNr;
+        private System.Windows.Forms.TextBox txtModel;
+        private System.Windows.Forms.TextBox txtMake;
+        private System.Windows.Forms.TextBox txtYear;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox cbxForSale;
         private System.Windows.Forms.ColumnHeader regnr;
         private System.Windows.Forms.ListView lsvCars;
         private System.Windows.Forms.ColumnHeader make;
@@ -205,7 +206,7 @@
         private System.Windows.Forms.ColumnHeader year;
         private System.Windows.Forms.ColumnHeader model;
         private System.Windows.Forms.Button btnRemove;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnClear;
     }
 }
 
