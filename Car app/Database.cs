@@ -25,8 +25,30 @@ namespace Car_app
 
         public void OpenConnection()
         {
-
+            if (dbConn.State != System.Data.ConnectionState.Closed)
+            {
+                dbConn.Close();
+            }
         }
+
+
+            public void CloseConnection()
+            {
+                    if (dbConn.State != System.Data.ConnectionState.Closed)
+                    {
+                         dbConn.Close();
+                    }
+            }
+
+
+        public int AddRow(Car car)
+        {
+            string qInsert = "Insert Into car ('regNr',"
+        }
+
+        
+
+
     
 
         
