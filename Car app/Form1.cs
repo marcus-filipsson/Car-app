@@ -12,6 +12,7 @@ namespace Car_app
 {
     public partial class Form1 : Form
     {
+        Database dbObject = new Database();
         public Form1()
         {
             InitializeComponent();
@@ -67,10 +68,11 @@ namespace Car_app
             txtRegNr.Focus();
         }
 
-        private ListViewItem CreateListViewItem(string regNr, string make, bool forSale)
+        private ListViewItem CreateListViewItem(Car car)
         {
-            ListViewItem item = new ListViewItem(regNr);
-            item.SubItems.Add(make);
+            ListViewItem item = new ListViewItem(car.GetRegNr());
+            item.SubItems.Add(car.GetMake());
+            item.SubItems.Add(car.GetModel());
             item.SubItems.Add(forSale ? "Yes" : "No");
             return item;
         }
@@ -83,6 +85,39 @@ namespace Car_app
             txtYear.Clear();
             cbxForSale.Checked = false;
             txtRegNr.Focus();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtRegNr.Text))
+            {
+                txtRegNr.Text = txtRegNr.Text.ToUpper();
+                PrintData(txtRegNr.Text);
+            }
+            else
+            {
+                MessageBox.Show("Du måste ange ett registreringsnummer", "Inmatning Saknas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void PrintData(string text)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void InitListView()
+        {
+            List<Car> listOfCars = dbObject.GetRowsFromCars();
+            foreach (var item in listOfCars)
+            {
+                AddCarToListView(item);
+            }
+        }
+
+        private void AddCarToListView(Car car)
+        {
+            ListViewItem item = CreateListViewItem(car);
+            lsvCars.Items.Add(item);
         }
     }
 }

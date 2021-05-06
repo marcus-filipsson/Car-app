@@ -35,8 +35,8 @@
             this.txtMake = new System.Windows.Forms.TextBox();
             this.txtYear = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cbxForSale = new System.Windows.Forms.CheckBox();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.cbxForSale = new System.Windows.Forms.CheckBox();
             this.regnr = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lsvCars = new System.Windows.Forms.ListView();
             this.make = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -45,40 +45,42 @@
             this.model = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtRegNr
             // 
-            this.txtRegNr.Location = new System.Drawing.Point(125, 73);
+            this.txtRegNr.Location = new System.Drawing.Point(160, 46);
             this.txtRegNr.Name = "txtRegNr";
             this.txtRegNr.Size = new System.Drawing.Size(146, 26);
             this.txtRegNr.TabIndex = 0;
             // 
             // txtModel
             // 
-            this.txtModel.Location = new System.Drawing.Point(374, 73);
+            this.txtModel.Location = new System.Drawing.Point(374, 46);
             this.txtModel.Name = "txtModel";
             this.txtModel.Size = new System.Drawing.Size(123, 26);
             this.txtModel.TabIndex = 1;
             // 
             // txtMake
             // 
-            this.txtMake.Location = new System.Drawing.Point(125, 123);
+            this.txtMake.Location = new System.Drawing.Point(160, 102);
             this.txtMake.Name = "txtMake";
             this.txtMake.Size = new System.Drawing.Size(146, 26);
             this.txtMake.TabIndex = 2;
             // 
             // txtYear
             // 
-            this.txtYear.Location = new System.Drawing.Point(374, 123);
+            this.txtYear.Location = new System.Drawing.Point(374, 102);
             this.txtYear.Name = "txtYear";
             this.txtYear.Size = new System.Drawing.Size(123, 26);
             this.txtYear.TabIndex = 3;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnSearch);
             this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Controls.Add(this.cbxForSale);
             this.groupBox1.Controls.Add(this.txtMake);
@@ -93,16 +95,6 @@
             this.groupBox1.Text = "groupBox1";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // cbxForSale
-            // 
-            this.cbxForSale.AutoSize = true;
-            this.cbxForSale.Location = new System.Drawing.Point(579, 73);
-            this.cbxForSale.Name = "cbxForSale";
-            this.cbxForSale.Size = new System.Drawing.Size(89, 24);
-            this.cbxForSale.TabIndex = 4;
-            this.cbxForSale.Text = "Till Salu";
-            this.cbxForSale.UseVisualStyleBackColor = true;
-            // 
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(579, 123);
@@ -112,6 +104,16 @@
             this.btnAdd.Text = "Lägg till";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // cbxForSale
+            // 
+            this.cbxForSale.AutoSize = true;
+            this.cbxForSale.Location = new System.Drawing.Point(579, 73);
+            this.cbxForSale.Name = "cbxForSale";
+            this.cbxForSale.Size = new System.Drawing.Size(89, 24);
+            this.cbxForSale.TabIndex = 4;
+            this.cbxForSale.Text = "Till Salu";
+            this.cbxForSale.UseVisualStyleBackColor = true;
             // 
             // regnr
             // 
@@ -153,9 +155,9 @@
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(620, 415);
+            this.btnRemove.Location = new System.Drawing.Point(620, 407);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(75, 23);
+            this.btnRemove.Size = new System.Drawing.Size(75, 31);
             this.btnRemove.TabIndex = 6;
             this.btnRemove.Text = "Ta bort markerad";
             this.btnRemove.UseVisualStyleBackColor = true;
@@ -171,11 +173,21 @@
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(15, 88);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(123, 55);
+            this.btnSearch.TabIndex = 6;
+            this.btnSearch.Text = "sök i biluppgifter";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 469);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.lsvCars);
@@ -207,6 +219,7 @@
         private System.Windows.Forms.ColumnHeader model;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnSearch;
     }
 }
 

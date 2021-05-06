@@ -24,10 +24,38 @@ namespace Car_app
             this.forSale = forSale;
         }
 
+        public bool GetForSale()
+        {
+            return forSale;
+        }
+        public void SetForSale(bool forSale)
+        {
+            this.forSale = forSale;
+        }
+        public int GetYear()
+        {
+            return year;
+        }
+        public void SetYear(int year)
+        {
+            this.year = year;
+        }
+
+
+        public string GetModel()
+        {
+            return model;
+        }
+        public void SetModel(string model)
+        {
+            this.model = model;
+        }
+
         public string GetRegNr()
         {
             return regNr;
         }
+
 
         public void SetRegNr (string regNr)
         {
