@@ -25,9 +25,9 @@ namespace Car_app
 
         public void OpenConnection()
         {
-            if (dbConn.State != System.Data.ConnectionState.Closed)
+            if (dbConn.State != System.Data.ConnectionState.Open)
             {
-                dbConn.Close();
+                dbConn.Open();
             }
         }
 
@@ -41,9 +41,9 @@ namespace Car_app
             }
 
 
-        public int AddRow(Car car)
+        public int AddCarRow(Car car)
         {
-            string qInsert = "Insert Into car ('regNr','maid','model','year','forSale',) VALUES (@regNr, @maid,@model,@year,@forSale);";
+            string qInsert = "INSERT INTO car ('regNr','maid','model','year','forSale') VALUES (@regNr, @maid,@model,@year,@forSale);";
 
             SQLiteCommand dbCommand = new SQLiteCommand(qInsert, dbConn);
             OpenConnection();

@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,6 +19,7 @@ namespace Car_app
         public Form1()
         {
             InitializeComponent();
+            InitListView();
             txtRegNr.Focus();
         }
 
@@ -33,11 +37,20 @@ namespace Car_app
             else
 
             {
-                ListViewItem item = CreateListViewItem(txtRegNr.Text, txtMake.Text, cbxForSale.Checked);
-                lsvCars.Items.Add(item);
+                Car car = new Car(txtRegNr.Text, txtMake.Text, txtModel.Text, Convert.ToInt32(txtYear.Text), cbxForSale.Checked);
+                AddCarToListView(car);
+
+                int result = dbObject.AddCarRow(car);
+                MessageBox.Show("Du har lagt till" + Convert.ToString(result) + "antal bilar");
                 ClearTextboxes();
                 btnClear.Enabled = true;
             }
+        }
+
+        private void AddCarToListView(Car car)
+        {
+            ListViewItem item = CreateListViewItem(car);
+            lsvCars.Items.Add(item);
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
@@ -73,7 +86,7 @@ namespace Car_app
             ListViewItem item = new ListViewItem(car.GetRegNr());
             item.SubItems.Add(car.GetMake());
             item.SubItems.Add(car.GetModel());
-            item.SubItems.Add(forSale ? "Yes" : "No");
+            item.SubItems.Add(car.GetForSale() ? "Yes" : "No");
             return item;
         }
 
@@ -100,10 +113,7 @@ namespace Car_app
             }
         }
 
-        private void PrintData(string text)
-        {
-            throw new NotImplementedException();
-        }
+       
 
         private void InitListView()
         {
@@ -114,10 +124,37 @@ namespace Car_app
             }
         }
 
-        private void AddCarToListView(Car car)
+        private void PrintData(string regNr)
         {
-            ListViewItem item = CreateListViewItem(car);
-            lsvCars.Items.Add(item);
+            string token = "ZYdERdMQ1BLgQ9DP6hwZpO7ScLeXcJUm";
+            string call = String.Format($"https://api.biluppgifter.se/api/v1/vehicle/regno/{regNr}?api_token={token}");
+
+            try
+            {
+                WebRequest request = HttpWebRequest.Create(call);
+
+                WebResponse response = request.GetResponse();
+
+                StreamReader reader = new StreamReader(response.GetResponseStream());
+
+                string carJSON = reader.ReadToEnd();
+
+                JObject jsonCar = JObject.Parse(carJSON);
+
+                txtMake.Text = jsonCar["data"]["basic"]["data"]["make"].ToString();
+
+                txtModel.Text = jsonCar["data"]["basic"]["data"]["model"].ToString();
+
+                txtYear.Text = jsonCar["data"]["basic"]["data"]["model_year"].ToString();
+
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show($"Bil med registreringsnummer {regNr} kunde inte hittas\n\nMeddelande: {e.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+       
     }
 }

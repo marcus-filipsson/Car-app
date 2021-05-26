@@ -35,6 +35,7 @@
             this.txtMake = new System.Windows.Forms.TextBox();
             this.txtYear = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.cbxForSale = new System.Windows.Forms.CheckBox();
             this.regnr = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -45,7 +46,10 @@
             this.model = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -66,20 +70,24 @@
             // 
             // txtMake
             // 
-            this.txtMake.Location = new System.Drawing.Point(160, 102);
+            this.txtMake.Location = new System.Drawing.Point(160, 117);
             this.txtMake.Name = "txtMake";
             this.txtMake.Size = new System.Drawing.Size(146, 26);
             this.txtMake.TabIndex = 2;
             // 
             // txtYear
             // 
-            this.txtYear.Location = new System.Drawing.Point(374, 102);
+            this.txtYear.Location = new System.Drawing.Point(374, 117);
             this.txtYear.Name = "txtYear";
             this.txtYear.Size = new System.Drawing.Size(123, 26);
             this.txtYear.TabIndex = 3;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnSearch);
             this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Controls.Add(this.cbxForSale);
@@ -95,11 +103,21 @@
             this.groupBox1.Text = "groupBox1";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(15, 88);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(123, 55);
+            this.btnSearch.TabIndex = 6;
+            this.btnSearch.Text = "sök i biluppgifter";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(579, 123);
+            this.btnAdd.Location = new System.Drawing.Point(555, 100);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 26);
+            this.btnAdd.Size = new System.Drawing.Size(99, 43);
             this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "Lägg till";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -108,7 +126,7 @@
             // cbxForSale
             // 
             this.cbxForSale.AutoSize = true;
-            this.cbxForSale.Location = new System.Drawing.Point(579, 73);
+            this.cbxForSale.Location = new System.Drawing.Point(579, 48);
             this.cbxForSale.Name = "cbxForSale";
             this.cbxForSale.Size = new System.Drawing.Size(89, 24);
             this.cbxForSale.TabIndex = 4;
@@ -167,21 +185,47 @@
             // 
             this.btnClear.Location = new System.Drawing.Point(111, 406);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(136, 32);
+            this.btnClear.Size = new System.Drawing.Size(166, 32);
             this.btnClear.TabIndex = 7;
             this.btnClear.Text = "Rensa bort all data";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // btnSearch
+            // label1
             // 
-            this.btnSearch.Location = new System.Drawing.Point(15, 88);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(123, 55);
-            this.btnSearch.TabIndex = 6;
-            this.btnSearch.Text = "sök i biluppgifter";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(160, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 20);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "RegNr";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(374, 20);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(55, 20);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Modell";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(162, 88);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 20);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Märke";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(374, 88);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(25, 20);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "År";
             // 
             // Form1
             // 
@@ -220,6 +264,10 @@
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }
 
